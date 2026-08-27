@@ -139,6 +139,7 @@ function Project({
   description,
   status,
   tags,
+  href,
 }: {
   number: string;
   type: string;

@@ -2,7 +2,6 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#080808] text-[#e8dfc8]">
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-8 py-8 md:px-16">
-        
         {/* Navigation */}
         <nav className="flex items-center justify-between border-b border-[#d68a3a]/30 pb-6">
           <div className="font-mono text-sm tracking-[0.35em] text-[#d68a3a]">
@@ -37,9 +36,9 @@ export default function Home() {
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg leading-8 text-[#99958c]">
-            Experimental systems and independent research at the intersection
-            of offensive security, artificial intelligence and radio
-            frequency technology.
+            Experimental systems and independent research at the intersection of
+            offensive security, artificial intelligence and radio frequency
+            technology.
           </p>
 
           {/* System status */}
@@ -60,60 +59,59 @@ export default function Home() {
             </div>
           </div>
         </section>
-{/* Projects */}
-<section id="projects" className="border-t border-[#d68a3a]/20 py-24">
-  <div className="mb-16">
-    <div className="font-mono text-xs tracking-[0.35em] text-[#d68a3a]">
-      PROJECTS // 001
-    </div>
+        {/* Projects */}
+        <section id="projects" className="border-t border-[#d68a3a]/20 py-24">
+          <div className="mb-16">
+            <div className="font-mono text-xs tracking-[0.35em] text-[#d68a3a]">
+              PROJECTS // 001
+            </div>
 
-    <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-[#f1eadb] md:text-6xl">
-      ACTIVE SYSTEMS
-    </h2>
+            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-[#f1eadb] md:text-6xl">
+              ACTIVE SYSTEMS
+            </h2>
 
-    <p className="mt-5 max-w-2xl text-[#8f8a80]">
-      Experimental systems built across offensive security, artificial
-      intelligence, wearable computing and radio frequency research.
-    </p>
-  </div>
+            <p className="mt-5 max-w-2xl text-[#8f8a80]">
+              Experimental systems built across offensive security, artificial
+              intelligence, wearable computing and radio frequency research.
+            </p>
+          </div>
 
-  <div className="space-y-6">
+          <div className="space-y-6">
+            {/* Lunar */}
+            <Project
+              number="01"
+              type="FEATURED SYSTEM"
+              title="LUNAR"
+              subtitle="LOCAL AI SECURITY SYSTEM"
+              description="A local AI platform designed to support offensive-security research, reconnaissance, analysis and security automation."
+              status="ACTIVE DEVELOPMENT"
+              tags={["LOCAL AI", "SECURITY", "AUTOMATION", "RECON"]}
+              href="/projects/lunar"
+            />
 
-    {/* Lunar */}
-    <Project
-      number="01"
-      type="FEATURED SYSTEM"
-      title="LUNAR"
-      subtitle="LOCAL AI SECURITY SYSTEM"
-      description="A local AI platform designed to support offensive-security research, reconnaissance, analysis and security automation."
-      status="ACTIVE DEVELOPMENT"
-      tags={["LOCAL AI", "SECURITY", "AUTOMATION", "RECON"]}
-    />
+            {/* G1 */}
+            <Project
+              number="02"
+              type="WEARABLE SYSTEM"
+              title="G1 // LUNAR"
+              subtitle="WEARABLE AI INTERFACE"
+              description="An experimental wearable interface connecting Even G1 smart glasses to the Lunar platform for heads-up information and AI interaction."
+              status="DEVELOPMENT"
+              tags={["G1", "BLE", "AI", "WEARABLE"]}
+            />
 
-    {/* G1 */}
-    <Project
-      number="02"
-      type="WEARABLE SYSTEM"
-      title="G1 // LUNAR"
-      subtitle="WEARABLE AI INTERFACE"
-      description="An experimental wearable interface connecting Even G1 smart glasses to the Lunar platform for heads-up information and AI interaction."
-      status="DEVELOPMENT"
-      tags={["G1", "BLE", "AI", "WEARABLE"]}
-    />
-
-    {/* RF Node */}
-    <Project
-      number="03"
-      type="RF SYSTEM"
-      title="RF NODE"
-      subtitle="REMOTE SOFTWARE-DEFINED RADIO"
-      description="A remotely accessible Raspberry Pi and SDR platform for radio-frequency experimentation, signal analysis and satellite research."
-      status="ONLINE"
-      tags={["SDR", "RF", "RASPBERRY PI", "SATELLITE"]}
-    />
-
-  </div>
-</section>
+            {/* RF Node */}
+            <Project
+              number="03"
+              type="RF SYSTEM"
+              title="RF NODE"
+              subtitle="REMOTE SOFTWARE-DEFINED RADIO"
+              description="A remotely accessible Raspberry Pi and SDR platform for radio-frequency experimentation, signal analysis and satellite research."
+              status="ONLINE"
+              tags={["SDR", "RF", "RASPBERRY PI", "SATELLITE"]}
+            />
+          </div>
+        </section>
         {/* Footer */}
         <footer className="flex justify-between border-t border-[#d68a3a]/20 py-6 font-mono text-[10px] tracking-[0.25em] text-[#5f5b54]">
           <span>CYBERNIGHTS // 2026</span>
@@ -149,15 +147,13 @@ function Project({
   description: string;
   status: string;
   tags: string[];
+  href?: string;
 }) {
   return (
     <article className="group border border-[#d68a3a]/20 bg-[#0a0908] transition duration-300 hover:border-[#d68a3a]/60">
       <div className="grid md:grid-cols-[140px_1fr_220px]">
-
         <div className="border-b border-[#d68a3a]/20 p-6 md:border-b-0 md:border-r">
-          <div className="font-mono text-4xl text-[#d68a3a]">
-            {number}
-          </div>
+          <div className="font-mono text-4xl text-[#d68a3a]">{number}</div>
 
           <div className="mt-3 font-mono text-[10px] tracking-[0.25em] text-[#5f5b54]">
             {type}
@@ -200,11 +196,19 @@ function Project({
             </div>
           </div>
 
-          <div className="mt-8 font-mono text-xs tracking-[0.2em] text-[#8f8a80] transition group-hover:text-[#d68a3a]">
-            VIEW SYSTEM →
-          </div>
+          {href ? (
+            <a
+              href={href}
+              className="mt-8 font-mono text-xs tracking-[0.2em] text-[#8f8a80] transition group-hover:text-[#d68a3a]"
+            >
+              VIEW SYSTEM →
+            </a>
+          ) : (
+            <div className="mt-8 font-mono text-xs tracking-[0.2em] text-[#5f5b54]">
+              SYSTEM LOG PENDING
+            </div>
+          )}
         </div>
-
       </div>
     </article>
   );
